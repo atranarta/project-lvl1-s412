@@ -3,5 +3,8 @@ install: install-deps
 install-deps:
 	npm install
 	
- start:
+start:
 	npx babel-node -- src/bin/brain-games.js
+
+publish:
+	npm publish
