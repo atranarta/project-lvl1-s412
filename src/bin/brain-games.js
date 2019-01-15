@@ -1,4 +1,5 @@
 #!/usr/bin/env node
 
-import {sayHi} from '..';
+import * as sayHi from '..';
+
 sayHi();
