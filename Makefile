@@ -8,3 +8,6 @@ start:
 
 publish:
 	npm publish --access=public
+
+lint:
+	npx eslint
