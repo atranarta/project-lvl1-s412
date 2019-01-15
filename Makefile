@@ -10,4 +10,4 @@ publish:
 	npm publish --access=public
 
 lint:
-	npx eslint
+	npx eslint .
