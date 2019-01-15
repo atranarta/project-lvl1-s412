@@ -25,5 +25,8 @@
     "game",
     "brain-game",
     "atranarta"
-  ]
+  ],
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  }
 }
