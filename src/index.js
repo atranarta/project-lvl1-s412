@@ -7,8 +7,11 @@ export const sayHi = () => {
   return userName;
 };
 
-export const isEven = () => {
-  sayHi();
+export const parityCheckGame = () => {
+  console.log('Welcome to the Brain Games!');
+  const rules = console.log('Answer "yes" if number even otherwise answer "no".');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello ${userName} !`);
 
   const randomInteger = () => {
     const min = 0;
@@ -18,8 +21,10 @@ export const isEven = () => {
     return rand;
   };
 
+  const randomNumber = randomInteger();
+
   const asker = () => {
-    console.log(`Question: ${randomInteger}`);
+    console.log(`Question: ${randomNumber}`);
     const answer = readlineSync.question('Your answer: ');
     return answer;
   };
@@ -30,14 +35,15 @@ export const isEven = () => {
       asker();
     };
     const wrong = () => {
-      console.log('Answer "yes" if number even otherwise answer "no"./n');
+      rules;
       console.log(`Let's try again, ${name} !`);
     };
 
-    for (let i = 0; i < 3; i += 1) {
+    for (let i = 1; i < 3; i += 1) {
       if (number % 2 === 0) {
         if (answer === 'yes') {
           correct();
+          randomNumber;
         } else {
           wrong();
         }
@@ -45,9 +51,10 @@ export const isEven = () => {
         wrong();
       } else {
         correct();
+        randomNumber;
       }
     }
     console.log(`Congratulations, ${name} !`);
   };
-  checkAnswer(randomInteger, asker, userName);
+  checkAnswer(randomInteger, asker(), userName);
 };
