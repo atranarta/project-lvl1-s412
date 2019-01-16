@@ -7,98 +7,39 @@ export const sayHi = () => {
   return userName;
 };
 
+const getRandomNumber = () => {
+  const min = 0;
+  const max = 100;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const isEven = number => (number % 2 === 0 ? 'yes' : 'no');
+
 export const parityCheckGame = () => {
   console.log('Welcome to the Brain Games!');
-  const rules = console.log('Answer "yes" if number even otherwise answer "no".');
+  console.log('Answer "yes" if number even otherwise answer "no".');
+
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName} !`);
 
-  const randomInteger = () => {
-    const min = 0;
-    const max = 100;
-    let rand = Math.floor(Math.random() * (max - min + 1)) + min;
-    return rand;
-  };
+  let attempts = 0;
+  for (let i = 1; i <= 3; i += 1) {
+    attempts = i;
 
-  let randomNumber = randomInteger();
-
-  const asker = () => {
-    console.log(`Question: ${randomNumber}`);
+    const generatedNumber = getRandomNumber();
+    console.log(`Question: ${generatedNumber}`);
     const answer = readlineSync.question('Your answer: ');
-    return answer;
-  };
 
-  const checkAnswer = (number, answer, name) => {
-    const correct = () => {
+    if (isEven(generatedNumber) !== answer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${isEven(generatedNumber)}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      break;
+    } else {
       console.log('Correct!');
-      asker();
-    };
-    const wrong = () => {
-      rules;
-      console.log(`Let's try again, ${name} !`);
-    };
-
-    for (let i = 1; i < 3; i += 1) {
-      if (number % 2 === 0) {
-        if (answer === 'yes') {
-          correct();
-          randomNumber;
-        } else {
-          wrong();
-        }
-      } else if (answer === 'yes') {
-        wrong();
-      } else {
-        correct();
-        randomNumber;
-      }
     }
-    console.log(`Congratulations, ${name} !`);
-  };
-  checkAnswer(randomInteger, asker(), userName);
+  }
+
+  if (attempts === 3) {
+    console.log(`Congratulations, ${userName}!`);
+  }
 };
-//   const randomInteger = () => {
-//     const min = 0;
-//     const max = 100;
-//     let rand = min - 0.5 + Math.random() * (max - 0 + 1);
-//     rand = Math.round(rand);
-//     return rand;
-//   };
-
-//   const randomNumber = randomInteger();
-
-//   const asker = () => {
-//     console.log(`Question: ${randomNumber}`);
-//     const answer = readlineSync.question('Your answer: ');
-//     return answer;
-//   };
-
-//   const checkAnswer = (number, answer, name) => {
-//     const correct = () => {
-//       console.log('Correct!');
-//       asker();
-//     };
-//     const wrong = () => {
-//       rules;
-//       console.log(`Let's try again, ${name} !`);
-//     };
-
-//     for (let i = 1; i < 3; i += 1) {
-//       if (number % 2 === 0) {
-//         if (answer === 'yes') {
-//           correct();
-//           randomNumber;
-//         } else {
-//           wrong();
-//         }
-//       } else if (answer === 'yes') {
-//         wrong();
-//       } else {
-//         correct();
-//         randomNumber;
-//       }
-//     }
-//     console.log(`Congratulations, ${name} !`);
-//   };
-//   checkAnswer(randomInteger, asker(), userName);
-// };
