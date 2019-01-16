@@ -26,6 +26,9 @@
     "eslint-plugin-jest": "^22.1.3",
     "eslint-plugin-lodash-fp": "^2.2.0-a1"
   },
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "files": [
     "dist"
   ],
@@ -33,8 +36,5 @@
     "game",
     "brain-game",
     "atranarta"
-  ],
-  "dependencies": {
-    "readline-sync": "^1.4.9"
-  }
+  ]
 }
