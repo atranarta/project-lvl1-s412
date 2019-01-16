@@ -1,6 +1,6 @@
 {
   "name": "@atranarta/hexlet1",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "My first project",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,8 @@
   "author": "atranarta",
   "license": "ISC",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-games": "dist/bin/brain-games.js",
+    "brain-even": "dist/bin/brain-even.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
