@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+// import { cons, car, cdr, toString } from 'hexlet-pairs';
 
 const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -30,26 +30,22 @@ export const parityCheckGame = () => {
 
   const userName = getUserName();
 
-  let attempts = 0;
-  for (let i = 1; i <= 3; i += 1) {
-    attempts = i;
-
-    const generatedNumber = getRandomNumber();
-    console.log(`Question: ${generatedNumber}`);
+  const attempts = 3;
+  for (let i = 1; i <= attempts; i += 1) {
+    const question = getRandomNumber();
+    const correctAnswer = checkAnswer(question);
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (checkAnswer(generatedNumber) !== answer) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${checkAnswer(generatedNumber)}'.`);
+    if (correctAnswer !== answer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
-      break;
-    } else {
-      console.log('Correct!');
+      return;
     }
+    console.log('Correct!');
   }
 
-  if (attempts === 3) {
-    console.log(`Congratulations, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export const calculationGame = () => {};
