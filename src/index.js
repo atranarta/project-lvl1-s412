@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-// import { cons, car, cdr, toString } from 'hexlet-pairs';
 
 const greeting = () => {
   console.log('Welcome to the Brain Games!');
@@ -57,16 +56,14 @@ export const calculationGame = () => {
 
   const attempts = 3;
   for (let i = 1; i <= attempts; i += 1) {
-    
-
     const getRandomOper = () => {
       const operationArr = [
         '+',
         '-',
-        '*'
-      ]
+        '*',
+      ];
       return operationArr[Math.floor(operationArr.length * Math.random())];
-    }
+    };
 
     const number1 = getRandomNumber();
     const number2 = getRandomNumber();
@@ -78,13 +75,14 @@ export const calculationGame = () => {
       op = operator;
       if (op === '-') {
         return (a - b);
-      } else if (op === '+') {
+      }
+      if (op === '+') {
         return (a + b);
-      } else if (op === '*') {
+      }
+      if (op === '*') {
         return (a * b);
       }
     };
-    
     console.log(`Question: ${number1} ${operator} ${number2}`);
 
     const correctAnswer = String(result());
