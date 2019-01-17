@@ -48,4 +48,55 @@ export const parityCheckGame = () => {
   console.log(`Congratulations, ${userName}!`);
 };
 
-export const calculationGame = () => {};
+
+export const calculationGame = () => {
+  greeting();
+  console.log('What is the result of the expression?');
+
+  const userName = getUserName();
+
+  const attempts = 3;
+  for (let i = 1; i <= attempts; i += 1) {
+    
+
+    const getRandomOper = () => {
+      const operationArr = [
+        '+',
+        '-',
+        '*'
+      ]
+      return operationArr[Math.floor(operationArr.length * Math.random())];
+    }
+
+    const number1 = getRandomNumber();
+    const number2 = getRandomNumber();
+    const operator = getRandomOper();
+
+    const result = (a, b, op) => {
+      a = number1;
+      b = number2;
+      op = operator;
+      if (op === '-') {
+        return (a - b);
+      } else if (op === '+') {
+        return (a + b);
+      } else if (op === '*') {
+        return (a * b);
+      }
+    };
+    
+    console.log(`Question: ${number1} ${operator} ${number2}`);
+
+    const correctAnswer = String(result());
+    const answer = readlineSync.question('Your answer: ');
+
+    if (correctAnswer !== answer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
+    }
+    console.log('Correct!');
+  }
+
+  console.log(`Congratulations, ${userName}!`);
+};
