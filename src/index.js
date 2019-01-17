@@ -10,29 +10,22 @@ const getUserName = () => {
   return userName;
 };
 
-const getRandomNumber = () => {
-  const min = 0;
-  const max = 100;
+const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-const checkAnswer = number => (number % 2 === 0 ? 'yes' : 'no');
+const isEven = number => (number % 2 === 0);
 
-export const sayHi = () => {
-  greeting();
-  getUserName();
-};
+const evenNumberChecker = number => (isEven(number) ? 'yes' : 'no') ;
 
-export const parityCheckGame = () => {
-  greeting();
-  console.log('Answer "yes" if number even otherwise answer "no".');
+const attempts = 3;
+const userName = getUserName();
 
-  const userName = getUserName();
 
-  const attempts = 3;
+const checkAnswer = () => {
   for (let i = 1; i <= attempts; i += 1) {
-    const question = getRandomNumber();
-    const correctAnswer = checkAnswer(question);
+    const question = getRandomNumber(1, 100);
+    const correctAnswer = evenNumberChecker(question);
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
 
@@ -43,18 +36,10 @@ export const parityCheckGame = () => {
     }
     console.log('Correct!');
   }
-
   console.log(`Congratulations, ${userName}!`);
 };
 
-
-export const calculationGame = () => {
-  greeting();
-  console.log('What is the result of the expression?');
-
-  const userName = getUserName();
-
-  const attempts = 3;
+const checkCalcAnswer = () => {
   for (let i = 1; i <= attempts; i += 1) {
     const getRandomOper = () => {
       const operationArr = [
@@ -65,8 +50,8 @@ export const calculationGame = () => {
       return operationArr[Math.floor(operationArr.length * Math.random())];
     };
 
-    const number1 = getRandomNumber();
-    const number2 = getRandomNumber();
+    const number1 = getRandomNumber(1, 10);
+    const number2 = getRandomNumber(1, 10);
     const operator = getRandomOper();
 
     const result = (a, b, op) => {
@@ -97,4 +82,23 @@ export const calculationGame = () => {
   }
 
   console.log(`Congratulations, ${userName}!`);
+};
+
+export const sayHi = () => {
+  greeting();
+  getUserName();
+};
+
+export const parityCheckGame = () => {
+  greeting();
+  console.log('Answer "yes" if number even otherwise answer "no".');
+
+  checkAnswer();
+};
+
+export const calculationGame = () => {
+  greeting();
+  console.log('What is the result of the expression?');
+
+  checkCalcAnswer();
 };
