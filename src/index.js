@@ -1,10 +1,18 @@
 import readlineSync from 'readline-sync';
 
-export const sayHi = () => {
+const greeting = () => {
   console.log('Welcome to the Brain Games!');
+}
+
+const getUserName = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello ${userName} !`);
   return userName;
+}
+
+export const sayHi = () => {
+  greeting();
+  getUserName();
 };
 
 const getRandomNumber = () => {
@@ -16,11 +24,10 @@ const getRandomNumber = () => {
 const isEven = number => (number % 2 === 0 ? 'yes' : 'no');
 
 export const parityCheckGame = () => {
-  console.log('Welcome to the Brain Games!');
+  greeting();
   console.log('Answer "yes" if number even otherwise answer "no".');
 
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello ${userName} !`);
+  const userName = getUserName();
 
   let attempts = 0;
   for (let i = 1; i <= 3; i += 1) {
