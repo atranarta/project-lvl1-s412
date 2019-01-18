@@ -1,4 +1,4 @@
-import { getRandomNumber, gameEngine } from '..';
+import { gameEngine } from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
@@ -20,4 +20,4 @@ export default () => {
     gameRuleExplanation,
     qustionAnswerCreator,
   );
-}
+};

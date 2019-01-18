@@ -1,4 +1,4 @@
-import { getRandomNumber, gameEngine } from '..';
+import { gameEngine } from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
@@ -19,9 +19,9 @@ const calculate = (number1, operator, number2) => {
       return number1 - number2;
     case '*':
       return number1 * number2;
+    default:
+      return NaN;
   }
-
-  return NaN;
 };
 
 const qustionAnswerCreator = () => {
@@ -42,4 +42,4 @@ export default () => {
     gameRuleExplanation,
     qustionAnswerCreator,
   );
-}
+};
