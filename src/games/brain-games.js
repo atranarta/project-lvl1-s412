@@ -1,6 +1,6 @@
 import { greeting, getUserName } from '..';
 
-export default function () {
+export default () => {
   greeting();
   getUserName();
 }

@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-
 import { car, cdr } from 'hexlet-pairs';
 
 export const greeting = () => {
@@ -12,7 +11,7 @@ export const getUserName = () => {
   return userName;
 };
 
-export const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+const attempts = 3;
 
 const getQuestion = pair => car(pair);
 const getAnswer = pair => cdr(pair);
@@ -25,7 +24,6 @@ export const gameEngine = (gameRuleExplanation, createQuestionAnswer) => {
   const userName = getUserName();
   console.log();
 
-  const attempts = 3;
   for (let i = 1; i <= attempts; i += 1) {
     const questionAnswerPair = createQuestionAnswer();
     const question = getQuestion(questionAnswerPair);
