@@ -17,12 +17,17 @@ export const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - m
 const getQuestion = pair => car(pair);
 const getAnswer = pair => cdr(pair);
 
-export const gameEngine = (questionFunction) => {
+export const gameEngine = (gameRuleExplanation, createQuestionAnswer) => {
+  greeting();
+  console.log(gameRuleExplanation);
+  console.log();
+
   const userName = getUserName();
+  console.log();
 
   const attempts = 3;
   for (let i = 1; i <= attempts; i += 1) {
-    const questionAnswerPair = questionFunction();
+    const questionAnswerPair = createQuestionAnswer();
     const question = getQuestion(questionAnswerPair);
     const answer = getAnswer(questionAnswerPair);
 

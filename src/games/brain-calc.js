@@ -1,4 +1,4 @@
-import { greeting, getRandomNumber, gameEngine } from '..';
+import { getRandomNumber, gameEngine } from '..';
 
 import { cons } from 'hexlet-pairs';
 
@@ -26,10 +26,7 @@ const calculate = (number1, operator, number2) => {
 };
 
 export default function () {
-  greeting();
-  console.log('What is the result of the expression?');
-
-  gameEngine(() => {
+  const qustionAnswerCreator = () => {
     const number1 = getRandomNumber(1, 10);
     const number2 = getRandomNumber(1, 10);
     const operator = getRandomOperator();
@@ -38,5 +35,10 @@ export default function () {
     const answer = String(calculate(number1, operator, number2));
 
     return cons(question, answer);
-  });
+  };
+
+  gameEngine(
+    'What is the result of the expression?',
+    qustionAnswerCreator,
+  );
 }
