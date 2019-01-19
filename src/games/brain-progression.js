@@ -3,8 +3,6 @@ import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
 const lengthOfProgression = 10;
-const startOfProgression = 5;
-const stepOfProgression = 3;
 const hiddenNumberPlaceholder = '..';
 
 const getArithmeticProgression = (start, step, length) => {
@@ -20,6 +18,9 @@ const getArithmeticProgression = (start, step, length) => {
 };
 
 const qustionAnswerCreator = () => {
+  const startOfProgression = getRandomNumber(0, 10);
+  const stepOfProgression = getRandomNumber(0, 10);
+
   const progression = getArithmeticProgression(
     startOfProgression,
     stepOfProgression,
