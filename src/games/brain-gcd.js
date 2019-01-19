@@ -3,7 +3,7 @@ import getRandomNumber from '../utils';
 import { cons } from 'hexlet-pairs';
 
 const getGCD = (number1, number2) => {
-  if (!number2) {
+  if (number2 === 0) {
     return number1;
   }
   return getGCD(number2, number1 % number2);
@@ -18,11 +18,11 @@ const qustionAnswerCreator = () => {
   return cons(question, answer);
 };
 
-export default () => {
-  const gameRuleExplanation = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
+export default () => {
   gameEngine(
-    gameRuleExplanation,
+    description,
     qustionAnswerCreator,
   );
 };

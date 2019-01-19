@@ -2,12 +2,9 @@ import { gameEngine } from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
+const operationArr = ['+', '-', '*'];
+
 const getRandomOperator = () => {
-  const operationArr = [
-    '+',
-    '-',
-    '*',
-  ];
   return operationArr[Math.floor(operationArr.length * Math.random())];
 };
 
@@ -17,10 +14,8 @@ const calculate = (number1, operator, number2) => {
       return number1 + number2;
     case '-':
       return number1 - number2;
-    case '*':
+    default: '*'
       return number1 * number2;
-    default:
-      return NaN;
   }
 };
 
@@ -35,11 +30,11 @@ const qustionAnswerCreator = () => {
   return cons(question, answer);
 };
 
-export default () => {
-  const gameRuleExplanation = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
+export default () => {
   gameEngine(
-    gameRuleExplanation,
+    description,
     qustionAnswerCreator,
   );
 };

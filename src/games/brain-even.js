@@ -13,11 +13,11 @@ const qustionAnswerCreator = () => {
   return cons(question, answer);
 };
 
-export default () => {
-  const gameRuleExplanation = 'Answer "yes" if number even otherwise answer "no".';
+const description = 'Answer "yes" if number even otherwise answer "no".';
 
+export default () => {
   gameEngine(
-    gameRuleExplanation,
+    description,
     qustionAnswerCreator,
   );
 };
