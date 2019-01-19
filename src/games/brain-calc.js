@@ -4,9 +4,7 @@ import getRandomNumber from '../utils';
 
 const operationArr = ['+', '-', '*'];
 
-const getRandomOperator = () => {
-  return operationArr[Math.floor(operationArr.length * Math.random())];
-};
+const getRandomOperator = () => operationArr[getRandomNumber(0, operationArr.length - 1)];
 
 const calculate = (number1, operator, number2) => {
   switch (operator) {
@@ -14,8 +12,7 @@ const calculate = (number1, operator, number2) => {
       return number1 + number2;
     case '-':
       return number1 - number2;
-    default: '*'
-      return number1 * number2;
+    default: return number1 * number2;
   }
 };
 

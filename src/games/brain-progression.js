@@ -1,36 +1,44 @@
-const getArithmeticProgression = (n, k) => {
-  const ArithmeticProgression = [];
-  ArithmeticProgression.push(n);
-  let lastItem = n;
+import { gameEngine } from '..';
+import { cons } from 'hexlet-pairs';
+import getRandomNumber from '../utils';
 
-  for (let i = 1; i < 10; i++) {
-    lastItem = lastItem + k;
-    ArithmeticProgression.push(lastItem);
+const lengthOfProgression = 10;
+const startOfProgression = 5;
+const stepOfProgression = 3;
+const hiddenNumberPlaceholder = '..';
+
+const getArithmeticProgression = (start, step, length) => {
+  const arithmeticProgression = [];
+  arithmeticProgression.push(start);
+  let currentNumber = start;
+
+  for (let i = 1; i < length; i += 1) {
+    currentNumber += step;
+    arithmeticProgression.push(currentNumber);
   }
-  return ArithmeticProgression;
-}
-
-const arr = getArithmeticProgression(5, 3);
-console.log("arr:", arr);
-
-const getRandomElement = arr => {
-  return arr[Math.floor(Math.random() * arr.length)];
+  return arithmeticProgression;
 };
 
-const getIndexOfRandomElement = n => {
-  return Math.floor(Math.random() * (arr.length - 1));
-}
-const index = Math.floor(Math.random() * (arr.length - 1));
-console.log("index:", index);
+const qustionAnswerCreator = () => {
+  const progression = getArithmeticProgression(
+    startOfProgression,
+    stepOfProgression,
+    lengthOfProgression,
+  );
+  const indexOfNumber = getRandomNumber(0, (progression.length - 1));
+  const valueOfHiddenNumber = progression[indexOfNumber];
+  progression[indexOfNumber] = hiddenNumberPlaceholder;
 
-const number = arr[index];
-console.log("number:", number);
-arr[index] = '..';
-console.log("arr:", arr);
-const arrToString = String(arr).replace(/,/g, ' ');
-console.log("arrToString:", arrToString);
+  const question = String(progression).replace(/,/g, ' ');
+  const answer = String(valueOfHiddenNumber);
+  return cons(question, answer);
+};
 
-const question = arrToString;
-console.log("question:", question);
-const answer = String(number);
-console.log("answer:", answer);
+const description = 'What number is missing in the progression?';
+
+export default () => {
+  gameEngine(
+    description,
+    qustionAnswerCreator,
+  );
+};
