@@ -1,4 +1,4 @@
-import { gameEngine } from '..';
+import gameEngine from '..';
 import getRandomNumber from '../utils';
 import { cons } from 'hexlet-pairs';
 
@@ -21,4 +21,3 @@ const qustionAnswerCreator = () => {
 const description = 'Find the greatest common divisor of given numbers.';
 
 export default () => gameEngine(description, qustionAnswerCreator);
-

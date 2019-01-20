@@ -1,4 +1,4 @@
-import { gameEngine } from '..';
+import gameEngine from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
@@ -9,7 +9,7 @@ const getArithmeticProgression = (start, step, length) => {
   const arithmeticProgression = [];
 
   for (let i = 0; i < length; i += 1) {
-    let currentNumber = start + step * i;
+    const currentNumber = start + step * i;
     arithmeticProgression.push(currentNumber);
   }
   return arithmeticProgression;
@@ -36,4 +36,3 @@ const qustionAnswerCreator = () => {
 const description = 'What number is missing in the progression?';
 
 export default () => gameEngine(description, qustionAnswerCreator);
-

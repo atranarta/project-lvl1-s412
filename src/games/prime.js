@@ -1,9 +1,9 @@
-import { gameEngine } from '..';
+import gameEngine from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
 const isPrime = (number) => {
-  if (number === 1) {
+  if (number <= 1) {
     return false;
   }
   for (let divider = 2; divider * divider <= number; divider += 1) {
@@ -27,4 +27,3 @@ const qustionAnswerCreator = () => {
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
 export default () => gameEngine(description, qustionAnswerCreator);
-

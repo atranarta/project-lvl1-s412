@@ -1,4 +1,4 @@
-import { gameEngine } from '..';
+import gameEngine from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
@@ -30,4 +30,3 @@ const qustionAnswerCreator = () => {
 const description = 'What is the result of the expression?';
 
 export default () => gameEngine(description, qustionAnswerCreator);
-

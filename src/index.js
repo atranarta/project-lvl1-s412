@@ -16,7 +16,7 @@ const attempts = 3;
 const getQuestion = pair => car(pair);
 const getAnswer = pair => cdr(pair);
 
-export const gameEngine = (description, createQuestionAnswer) => {
+export default (description, createQuestionAnswer) => {
   greeting();
   console.log(description);
   console.log();

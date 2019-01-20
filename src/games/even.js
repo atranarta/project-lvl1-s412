@@ -1,4 +1,4 @@
-import { gameEngine } from '..';
+import gameEngine from '..';
 import { cons } from 'hexlet-pairs';
 import getRandomNumber from '../utils';
 
@@ -16,4 +16,3 @@ const qustionAnswerCreator = () => {
 const description = 'Answer "yes" if number even otherwise answer "no".';
 
 export default () => gameEngine(description, qustionAnswerCreator);
-
