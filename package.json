@@ -42,6 +42,9 @@
     "brain-game",
     "atranarta",
     "brain-even",
-    "brain-calc"
+    "brain-calc",
+    "brain-gcd",
+    "brain-prime",
+    "brain-progression"
   ]
 }

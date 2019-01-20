@@ -7,11 +7,9 @@ const hiddenNumberPlaceholder = '..';
 
 const getArithmeticProgression = (start, step, length) => {
   const arithmeticProgression = [];
-  arithmeticProgression.push(start);
-  let currentNumber = start;
 
-  for (let i = 1; i < length; i += 1) {
-    currentNumber += step;
+  for (let i = 0; i < length; i += 1) {
+    let currentNumber = start + step * i;
     arithmeticProgression.push(currentNumber);
   }
   return arithmeticProgression;
@@ -30,16 +28,12 @@ const qustionAnswerCreator = () => {
   const valueOfHiddenNumber = progression[indexOfNumber];
   progression[indexOfNumber] = hiddenNumberPlaceholder;
 
-  const question = String(progression).replace(/,/g, ' ');
+  const question = progression.join(' ');
   const answer = String(valueOfHiddenNumber);
   return cons(question, answer);
 };
 
 const description = 'What number is missing in the progression?';
 
-export default () => {
-  gameEngine(
-    description,
-    qustionAnswerCreator,
-  );
-};
+export default () => gameEngine(description, qustionAnswerCreator);
+

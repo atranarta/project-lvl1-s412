@@ -20,9 +20,5 @@ const qustionAnswerCreator = () => {
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-export default () => {
-  gameEngine(
-    description,
-    qustionAnswerCreator,
-  );
-};
+export default () => gameEngine(description, qustionAnswerCreator);
+

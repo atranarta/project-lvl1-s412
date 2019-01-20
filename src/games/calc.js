@@ -29,9 +29,5 @@ const qustionAnswerCreator = () => {
 
 const description = 'What is the result of the expression?';
 
-export default () => {
-  gameEngine(
-    description,
-    qustionAnswerCreator,
-  );
-};
+export default () => gameEngine(description, qustionAnswerCreator);
+
